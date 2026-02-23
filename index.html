@@ -3,183 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encuesta Informativa</title>
+<title>Encuesta Historias y un Café</title>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 40px 20px;
+    font-family: 'Raleway', sans-serif;
+    background-color: #24272a;
+    color: #ededed;
+    padding: 30px;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: auto;
+    background: #2e3236;
+    padding: 30px;
+    border-radius: 12px;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 25px;
+    color: #a57f50;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 20px;
-}
-
-select, input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.question {
+    margin-top: 25px;
 }
 
 button {
-  margin-top: 30px;
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 6px;
-  background: #24272a;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #a57f50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-button:hover {
-  background: #a57f50;
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
 }
 
-#contactBlock {
-  display: none;
-}
-
-#msg {
-  margin-top: 20px;
-  text-align: center;
-  font-weight: bold;
+.hidden {
+    display: none;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-<h1>Encuesta Informativa</h1>
+<h1>✨ Queremos escucharte</h1>
+<p>Estamos evaluando extender nuestro horario. Tu respuesta toma menos de 1 minuto.</p>
 
-<form id="form">
+<form id="surveyForm">
 
-<label>¿Con qué frecuencia nos visitas?</label>
-<select name="frecuencia_actual" required>
-  <option value="">Selecciona</option>
-  <option>1 vez al mes</option>
-  <option>2-3 veces al mes</option>
-  <option>1 vez por semana</option>
-  <option>Varias veces por semana</option>
-</select>
+<div class="question">
+<p>1️⃣ ¿Con qué frecuencia nos visitas actualmente?</p>
+<input type="radio" name="q1" value="1 vez al mes" required> 1 vez al mes<br>
+<input type="radio" name="q1" value="2–3 veces al mes"> 2–3 veces al mes<br>
+<input type="radio" name="q1" value="1 vez por semana"> 1 vez por semana<br>
+<input type="radio" name="q1" value="Varias veces por semana"> Varias veces por semana
+</div>
 
-<label>¿Hasta qué hora te gustaría que estemos abiertos?</label>
-<select name="hora_extendida" required>
-  <option value="">Selecciona</option>
-  <option>3:00 PM</option>
-  <option>4:00 PM</option>
-  <option>5:00 PM</option>
-  <option>6:00 PM</option>
-</select>
+<div class="question">
+<p>2️⃣ Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</p>
+<input type="radio" name="q2" value="4:00pm" required> 4:00pm<br>
+<input type="radio" name="q2" value="5:00pm"> 5:00pm<br>
+<input type="radio" name="q2" value="6:00pm"> 6:00pm<br>
+<input type="radio" name="q2" value="No me afectaría el horario"> No me afectaría el horario
+</div>
 
-<label>¿Qué días te gustaría horario extendido?</label>
-<select name="dias_extendidos" required>
-  <option value="">Selecciona</option>
-  <option>Viernes</option>
-  <option>Sábado</option>
-  <option>Domingo</option>
-  <option>Viernes y Sábado</option>
-  <option>Todos</option>
-</select>
+<div class="question">
+<p>3️⃣ ¿En qué días te sería más atractivo visitarnos en horario extendido?</p>
+<input type="radio" name="q3" value="Martes a jueves" required> Martes a jueves<br>
+<input type="radio" name="q3" value="Viernes y sábado"> Viernes y sábado<br>
+<input type="radio" name="q3" value="Ambos"> Ambos
+</div>
 
-<label>¿Cuántas veces al mes nos visitarías si extendemos horario?</label>
-<select name="visitas_mensuales" required>
-  <option value="">Selecciona</option>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4 o más</option>
-</select>
+<div class="question">
+<p>4️⃣ ¿Qué propuesta te motivaría a visitarnos en la tarde? (Puedes marcar más de una)</p>
+<input type="checkbox" name="q4" value="Café + postres"> Café + postres<br>
+<input type="checkbox" name="q4" value="Menú ligero"> Menú ligero<br>
+<input type="checkbox" name="q4" value="Tapas y vinos"> Tapas y vinos<br>
+<input type="checkbox" name="q4" value="Ambiente relajado para conversar"> Ambiente relajado para conversar<br>
+<input type="checkbox" name="q4" value="Espacio para reuniones de trabajo"> Espacio para reuniones de trabajo<br>
+<input type="checkbox" name="q4" value="Promoción especial en la tarde"> Promoción especial en la tarde
+</div>
 
-<label>¿Quieres recibir notificación si extendemos horario?</label>
-<select name="recibir_notificacion" id="notify" required>
-  <option value="">Selecciona</option>
-  <option>Sí</option>
-  <option>No</option>
-</select>
+<div class="question">
+<p>5️⃣ Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</p>
+<input type="radio" name="q5" value="1 vez" required> 1 vez<br>
+<input type="radio" name="q5" value="2 veces"> 2 veces<br>
+<input type="radio" name="q5" value="3 o más"> 3 o más
+</div>
 
-<div id="contactBlock">
+<div class="question">
+<p>6️⃣ ¿Te gustaría recibir notificación cuando iniciemos esta nueva etapa?</p>
+<input type="radio" name="q6" value="Sí" required onclick="toggleFields(true)"> Sí<br>
+<input type="radio" name="q6" value="No" onclick="toggleFields(false)"> No
+</div>
 
-<label>Nombre</label>
-<input type="text" name="nombre">
+<div id="contactFields" class="hidden">
+<div class="question">
+<label>Nombre y Apellido:</label>
+<input type="text" id="nombre">
+</div>
 
-<label>Celular</label>
-<input type="tel" name="celular">
-
+<div class="question">
+<label>Número de celular:</label>
+<input type="text" id="celular">
+</div>
 </div>
 
 <button type="submit">Enviar</button>
 
 </form>
 
-<p id="msg"></p>
-
 </div>
 
 <script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzjN44_nHKMtdlVF_JUcZIAM2OovtuaevzwZ1vBRmmXsSnmA75j-Dq5U3mk6LyZxpea/exec";
 
-const ENDPOINT = "https://script.google.com/macros/s/AKfycbzjN44_nHKMtdlVF_JUcZIAM2OovtuaevzwZ1vBRmmXsSnmA75j-Dq5U3mk6LyZxpea/exec";
+function toggleFields(show) {
+    const fields = document.getElementById("contactFields");
+    const nombre = document.getElementById("nombre");
+    const celular = document.getElementById("celular");
 
-const form = document.getElementById("form");
-const notify = document.getElementById("notify");
-const contactBlock = document.getElementById("contactBlock");
-const msg = document.getElementById("msg");
+    if (show) {
+        fields.classList.remove("hidden");
+        nombre.setAttribute("required", true);
+        celular.setAttribute("required", true);
+    } else {
+        fields.classList.add("hidden");
+        nombre.removeAttribute("required");
+        celular.removeAttribute("required");
+    }
+}
 
-notify.addEventListener("change", function() {
-  if (this.value === "Sí") {
-    contactBlock.style.display = "block";
-    document.querySelector('input[name="nombre"]').required = true;
-    document.querySelector('input[name="celular"]').required = true;
-  } else {
-    contactBlock.style.display = "none";
-    document.querySelector('input[name="nombre"]').required = false;
-    document.querySelector('input[name="celular"]').required = false;
-  }
+document.getElementById("surveyForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    fetch(scriptURL, { method: "POST", body: formData })
+        .then(response => alert("¡Gracias por tu respuesta!"))
+        .catch(error => alert("Hubo un error. Intenta nuevamente."));
 });
-
-form.addEventListener("submit", async function(e) {
-  e.preventDefault();
-  msg.textContent = "Enviando...";
-
-  const formData = new FormData(form);
-
-  try {
-    await fetch(ENDPOINT, {
-      method: "POST",
-      body: formData
-    });
-
-    msg.textContent = "Gracias por tu opinión.";
-    form.reset();
-    contactBlock.style.display = "none";
-
-  } catch (error) {
-    msg.textContent = "Error al enviar. Intenta nuevamente.";
-  }
-});
-
 </script>
 
 </body>

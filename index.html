@@ -3,156 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Queremos escucharte</title>
+<title>Encuesta Historias</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: #24272a;
-  color: #ededed;
-  padding: 40px 20px;
-  max-width: 600px;
+  background-color: #ededed;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 650px;
   margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 h1 {
-  color: #a57f50;
-  text-align: center;
+  color: #24272a;
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
-select, input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  border: none;
+.subtitle {
+  color: #5c857d;
+  margin-bottom: 25px;
 }
 
 label {
-  font-weight: bold;
+  font-weight: 600;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #24272a;
+}
+
+select, input[type="text"], input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Raleway';
+  font-size: 14px;
 }
 
 .checkbox-group {
-  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checkbox-item input {
+  margin-right: 10px;
 }
 
 button {
+  margin-top: 30px;
   background-color: #a57f50;
   color: white;
   border: none;
   padding: 12px;
   width: 100%;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 8px;
   font-size: 16px;
+  cursor: pointer;
+  font-family: 'Raleway';
+  font-weight: 600;
 }
 
 button:hover {
-  opacity: 0.9;
+  background-color: #8e6a3f;
 }
 
-.hidden {
-  display: none;
+.success {
+  color: green;
+  margin-top: 15px;
+}
+
+.error {
+  color: red;
+  margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>✨ Queremos escucharte</h1>
-<p>Estamos evaluando extender nuestro horario.<br>
-Tu respuesta toma menos de 1 minuto.</p>
+<div class="container">
+  <h1>✨ Queremos escucharte</h1>
+  <div class="subtitle">
+    Estamos evaluando extender nuestro horario.<br>
+    Tu respuesta toma menos de 1 minuto.
+  </div>
 
-<form id="form">
+<form id="encuestaForm">
 
 <label>1️⃣ ¿Con qué frecuencia nos visitas actualmente?</label>
 <select name="frecuencia" required>
-<option value="">Selecciona una opción</option>
-<option>1 vez al mes</option>
-<option>2–3 veces al mes</option>
-<option>1 vez por semana</option>
-<option>Varias veces por semana</option>
+  <option value="">Selecciona una opción</option>
+  <option>1 vez al mes</option>
+  <option>2–3 veces al mes</option>
+  <option>1 vez por semana</option>
+  <option>Varias veces por semana</option>
 </select>
 
 <label>2️⃣ Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</label>
 <select name="hora" required>
-<option value="">Selecciona una opción</option>
-<option>4:00pm</option>
-<option>5:00pm</option>
-<option>6:00pm</option>
-<option>No me afectaría el horario</option>
+  <option value="">Selecciona una opción</option>
+  <option>4:00pm</option>
+  <option>5:00pm</option>
+  <option>6:00pm</option>
+  <option>No me afectaría el horario</option>
 </select>
 
 <label>3️⃣ ¿En qué días te sería más atractivo visitarnos en horario extendido?</label>
 <select name="dias" required>
-<option value="">Selecciona una opción</option>
-<option>Martes a jueves</option>
-<option>Viernes y sábado</option>
-<option>Ambos</option>
+  <option value="">Selecciona una opción</option>
+  <option>Martes a jueves</option>
+  <option>Viernes y sábado</option>
+  <option>Ambos</option>
 </select>
 
-<label>4️⃣ ¿Qué propuesta te motivaría a visitarnos en la tarde?</label>
+<label>4️⃣ ¿Qué propuesta te motivaría a visitarnos en la tarde? (Puedes marcar más de una)</label>
 <div class="checkbox-group">
-  <input type="checkbox" name="propuesta" value="Café + postres"> Café + postres<br>
-  <input type="checkbox" name="propuesta" value="Menú ligero"> Menú ligero<br>
-  <input type="checkbox" name="propuesta" value="Tapas y vinos"> Tapas y vinos<br>
-  <input type="checkbox" name="propuesta" value="Ambiente relajado para conversar"> Ambiente relajado para conversar<br>
-  <input type="checkbox" name="propuesta" value="Espacio para reuniones de trabajo"> Espacio para reuniones de trabajo
+  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Café + postres"> Café + postres</div>
+  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Menú ligero"> Menú ligero</div>
+  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Tapas y vinos"> Tapas y vinos</div>
+  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Ambiente relajado para conversar"> Ambiente relajado para conversar</div>
+  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Espacio para reuniones de trabajo"> Espacio para reuniones de trabajo</div>
 </div>
 
 <label>5️⃣ Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</label>
 <select name="visitas" required>
-<option value="">Selecciona una opción</option>
-<option>1 vez</option>
-<option>2 veces</option>
-<option>3 o más</option>
+  <option value="">Selecciona una opción</option>
+  <option>1 vez</option>
+  <option>2 veces</option>
+  <option>3 o más</option>
 </select>
 
 <label>6️⃣ ¿Te gustaría recibir notificación cuando iniciemos esta nueva etapa?</label>
 <select name="notificacion" id="notificacion" required>
-<option value="">Selecciona una opción</option>
-<option>Sí</option>
-<option>No</option>
+  <option value="">Selecciona una opción</option>
+  <option>Sí</option>
+  <option>No</option>
 </select>
 
-<div id="contacto" class="hidden">
-<label>Nombre y Apellido</label>
-<input type="text" name="nombre">
+<div id="datosContacto" style="display:none;">
+  <label>Nombre y Apellido:</label>
+  <input type="text" name="nombre">
 
-<label>Número de celular</label>
-<input type="text" name="celular">
+  <label>Número de celular:</label>
+  <input type="tel" name="celular">
 </div>
 
-<button type="submit">Enviar respuesta</button>
+<button type="submit">Enviar</button>
+
+<div id="mensaje"></div>
 
 </form>
+</div>
 
 <script>
-const form = document.getElementById('form');
-const notificacion = document.getElementById('notificacion');
-const contacto = document.getElementById('contacto');
+const scriptURL = "https://script.google.com/macros/s/AKfycbx6zul-7YRMfOCGAZilNsbTtZqkEJ8AODZGjptXeT0a3j_wyvMaC3eRAe4ftVxY2pUs/exec";
 
-notificacion.addEventListener('change', function() {
+document.getElementById("notificacion").addEventListener("change", function() {
+  const contacto = document.getElementById("datosContacto");
   if (this.value === "Sí") {
-    contacto.classList.remove('hidden');
-    form.nombre.required = true;
-    form.celular.required = true;
+    contacto.style.display = "block";
   } else {
-    contacto.classList.add('hidden');
-    form.nombre.required = false;
-    form.celular.required = false;
+    contacto.style.display = "none";
   }
 });
 
-form.addEventListener('submit', function(e) {
+document.getElementById("encuestaForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
+  const form = e.target;
   const formData = new FormData(form);
 
   const propuestas = [];
-  document.querySelectorAll('input[name="propuesta"]:checked')
-    .forEach(el => propuestas.push(el.value));
+  form.querySelectorAll('input[name="propuesta"]:checked')
+      .forEach(el => propuestas.push(el.value));
 
   const data = {
     frecuencia: formData.get("frecuencia"),
@@ -165,23 +205,26 @@ form.addEventListener('submit', function(e) {
     celular: formData.get("celular")
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzjN44_nHKMtdlVF_JUcZIAM2OovtuaevzwZ1vBRmmXsSnmA75j-Dq5U3mk6LyZxpea/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
+  try {
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const result = await response.json();
+
+    if (result.result === "success") {
+      document.getElementById("mensaje").innerHTML = "<div class='success'>Gracias por tu respuesta ✨</div>";
+      form.reset();
+      document.getElementById("datosContacto").style.display = "none";
+    } else {
+      throw new Error();
     }
-  })
-  .then(response => response.json())
-  .then(result => {
-    alert("Gracias por tu respuesta 💛");
-    form.reset();
-    contacto.classList.add('hidden');
-  })
-  .catch(error => {
-    alert("Ocurrió un error al enviar. Intenta nuevamente.");
-    console.error(error);
-  });
+
+  } catch (error) {
+    document.getElementById("mensaje").innerHTML = "<div class='error'>Ocurrió un error al enviar. Intenta nuevamente.</div>";
+  }
 });
 </script>
 

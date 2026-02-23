@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historias Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #24272a;
+  color: #ededed;
+  margin: 0;
+  padding: 0;
+}
 
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+h1 {
+  color: #a57f50;
+  text-align: center;
+}
+
+.card {
+  background-color: #2e3235;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #a57f50;
+  color: #24272a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.success {
+  text-align: center;
+  color: #9fcfca;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Historias Premium</h1>
+
+  <div class="card">
+    <p>Estamos evaluando extender nuestro horario hasta las 6pm bajo un nuevo concepto premium.</p>
+    <p>Tu opinión define esta evolución.</p>
+
+    <form id="premiumForm">
+      
+      <label>¿En qué horario adicional nos visitarías?</label>
+      <select name="horario" required>
+        <option value="">Selecciona</option>
+        <option>3pm–4pm</option>
+        <option>4pm–5pm</option>
+        <option>5pm–6pm</option>
+        <option>No lo visitaría en la tarde</option>
+      </select>
+
+      <label>¿Para qué lo usarías?</label>
+      <select name="uso" required>
+        <option value="">Selecciona</option>
+        <option>Reuniones de trabajo</option>
+        <option>Coffee break con amigas</option>
+        <option>Cena ligera</option>
+        <option>Eventos corporativos</option>
+        <option>No lo usaría</option>
+      </select>
+
+      <label>¿Estarías dispuesto(a) a pagar un ticket promedio de $25–$35?</label>
+      <select name="ticket" required>
+        <option value="">Selecciona</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+
+      <label>¿Te interesan eventos privados?</label>
+      <select name="eventos" required>
+        <option value="">Selecciona</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+
+      <label>Email (opcional)</label>
+      <input type="email" name="email" placeholder="tuemail@email.com">
+
+      <button type="submit">Enviar opinión</button>
+    </form>
+
+    <div class="success" id="successMessage"></div>
+
+  </div>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxxjH2o3Qcejtlschujy2fX4-drDxvdtDN1dUAkC2D3kWiKSzQmxJw6ACW1D9L5JaqH/exec";
+
+document.getElementById("premiumForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("successMessage").innerText = "Gracias por participar en la evolución de Historias.";
+    document.getElementById("premiumForm").reset();
+  })
+  .catch(error => console.error("Error!", error));
+});
+</script>
+
+</body>
+</html>

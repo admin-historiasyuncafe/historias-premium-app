@@ -3,166 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Historias Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Encuesta Informativa</title>
 
 <style>
-body{
-margin:0;
-background:#f7f5f2; /* fondo claro elegante */
-font-family:'Raleway',sans-serif;
-color:#24272a;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 40px 20px;
 }
 
-.wrapper{
-max-width:560px;
-padding:60px 40px;
-background:white;
-box-shadow:0 20px 60px rgba(0,0,0,0.05);
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-h1{
-font-weight:300;
-color:#a57f50;
-letter-spacing:1px;
-margin-bottom:25px;
-font-size:28px;
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-p{
-font-size:15px;
-line-height:1.7;
-margin-bottom:40px;
-color:#24272a;
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
 }
 
-label{
-font-size:14px;
-letter-spacing:1px;
-color:#a57f50;
-display:block;
-margin-top:22px;
+select, input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-select,input{
-width:100%;
-padding:12px;
-margin-top:8px;
-border:1px solid #e5e5e5;
-background:#fafafa;
-font-size:14px;
-color:#24272a;
-transition:.3s;
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #24272a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-select:focus,input:focus{
-outline:none;
-border-color:#a57f50;
-background:white;
+button:hover {
+  background: #a57f50;
 }
 
-button{
-width:100%;
-margin-top:40px;
-padding:14px;
-background:#a57f50;
-border:none;
-color:white;
-font-weight:500;
-letter-spacing:1px;
-cursor:pointer;
-transition:.3s;
+#contactBlock {
+  display: none;
 }
 
-button:hover{
-background:#8f6d44;
-}
-
-.success{
-margin-top:25px;
-color:#5c857d;
-font-size:14px;
+#msg {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 </style>
 </head>
-
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-<h1>Una Nueva Etapa</h1>
-
-<p>
-H Restaurant evoluciona hacia una integración con Historias y un Café bajo el concepto <strong>Historias Premium</strong>.  
-Estamos evaluando extender nuestro horario hasta las 6:00pm para ofrecer experiencias corporativas, privadas y encuentros más relajados en la tarde.
-Tu opinión es importante para tomar esta decisión.
-</p>
+<h1>Encuesta Informativa</h1>
 
 <form id="form">
 
-<label>¿Te gustaría que extendamos hasta las 6:00pm?</label>
-<select name="opinion" required>
-<option value="">Selecciona</option>
-<option>Definitivamente sí</option>
-<option>Tal vez</option>
-<option>No lo veo necesario</option>
+<label>¿Con qué frecuencia nos visitas?</label>
+<select name="frecuencia_actual" required>
+  <option value="">Selecciona</option>
+  <option>1 vez al mes</option>
+  <option>2-3 veces al mes</option>
+  <option>1 vez por semana</option>
+  <option>Varias veces por semana</option>
 </select>
 
-<label>¿En qué horario nos visitarías?</label>
-<select name="horarioVisita" required>
-<option value="">Selecciona</option>
-<option>3:00pm - 4:00pm</option>
-<option>4:00pm - 5:00pm</option>
-<option>5:00pm - 6:00pm</option>
-<option>Solo en la mañana</option>
+<label>¿Hasta qué hora te gustaría que estemos abiertos?</label>
+<select name="hora_extendida" required>
+  <option value="">Selecciona</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+  <option>5:00 PM</option>
+  <option>6:00 PM</option>
 </select>
 
-<label>¿Para qué nos visitarías?</label>
-<select name="motivoVisita" required>
-<option value="">Selecciona</option>
-<option>Reunión de trabajo</option>
-<option>After office / café relajado</option>
-<option>Cena ligera</option>
-<option>Evento corporativo</option>
-<option>Encuentro social</option>
+<label>¿Qué días te gustaría horario extendido?</label>
+<select name="dias_extendidos" required>
+  <option value="">Selecciona</option>
+  <option>Viernes</option>
+  <option>Sábado</option>
+  <option>Domingo</option>
+  <option>Viernes y Sábado</option>
+  <option>Todos</option>
 </select>
 
-<label>Teléfono (opcional)</label>
-<input type="text" name="telefono">
+<label>¿Cuántas veces al mes nos visitarías si extendemos horario?</label>
+<select name="visitas_mensuales" required>
+  <option value="">Selecciona</option>
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4 o más</option>
+</select>
 
-<label>Email (opcional)</label>
-<input type="email" name="email">
+<label>¿Quieres recibir notificación si extendemos horario?</label>
+<select name="recibir_notificacion" id="notify" required>
+  <option value="">Selecciona</option>
+  <option>Sí</option>
+  <option>No</option>
+</select>
+
+<div id="contactBlock">
+
+<label>Nombre</label>
+<input type="text" name="nombre">
+
+<label>Celular</label>
+<input type="tel" name="celular">
+
+</div>
 
 <button type="submit">Enviar</button>
 
-<div class="success" id="msg"></div>
-
 </form>
+
+<p id="msg"></p>
 
 </div>
 
 <script>
-document.getElementById("form").addEventListener("submit", function(e){
-e.preventDefault();
 
-const data = Object.fromEntries(new FormData(this).entries());
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbzjN44_nHKMtdlVF_JUcZIAM2OovtuaevzwZ1vBRmmXsSnmA75j-Dq5U3mk6LyZxpea/exec";
 
-fetch("https://script.google.com/macros/s/AKfycby2D55s8r5VI0W9JkYtTOI9_nUmiGmfzeW7EcGZUkLnZlZ5PvnTCL7-ECqY9vnBYjNm/exec", {
-method:"POST",
-mode:"no-cors",
-body:JSON.stringify(data),
-headers:{
-"Content-Type":"application/json"
-}
+const form = document.getElementById("form");
+const notify = document.getElementById("notify");
+const contactBlock = document.getElementById("contactBlock");
+const msg = document.getElementById("msg");
+
+notify.addEventListener("change", function() {
+  if (this.value === "Sí") {
+    contactBlock.style.display = "block";
+    document.querySelector('input[name="nombre"]').required = true;
+    document.querySelector('input[name="celular"]').required = true;
+  } else {
+    contactBlock.style.display = "none";
+    document.querySelector('input[name="nombre"]').required = false;
+    document.querySelector('input[name="celular"]').required = false;
+  }
 });
 
-document.getElementById("msg").innerText="Gracias por compartir tu opinión.";
-this.reset();
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  msg.textContent = "Enviando...";
+
+  const formData = new FormData(form);
+
+  try {
+    await fetch(ENDPOINT, {
+      method: "POST",
+      body: formData
+    });
+
+    msg.textContent = "Gracias por tu opinión.";
+    form.reset();
+    contactBlock.style.display = "none";
+
+  } catch (error) {
+    msg.textContent = "Error al enviar. Intenta nuevamente.";
+  }
 });
+
 </script>
 
 </body>

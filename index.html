@@ -1,177 +1,371 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Historias Premium</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Historias – Encuesta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+  :root{
+    --charcoal:#24272a;
+    --gold:#a57f50;
+    --sage:#5c857d;
+    --teal:#9fcfca;
+    --light:#ededed;
+    --card:#ffffff;
+    --muted:#6b6f73;
+    --border:#e6e6e6;
+  }
 
-body{
-  font-family: Raleway, sans-serif;
-  background:#ededed;
-  margin:0;
-  padding:40px;
-}
+  body{
+    margin:0;
+    font-family:'Raleway',sans-serif;
+    background:var(--light);
+    color:var(--charcoal);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:28px 16px;
+  }
 
-.container{
-  max-width:700px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+  .wrap{
+    width:100%;
+    max-width:640px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:0 14px 40px rgba(0,0,0,0.06);
+    padding:28px 22px;
+  }
 
-h1{
-  color:#24272a;
-}
+  h1{
+    margin:0 0 8px 0;
+    font-size:26px;
+    font-weight:600;
+    color:var(--charcoal);
+    letter-spacing:.2px;
+  }
 
-label{
-  display:block;
-  margin-top:15px;
-  font-weight:600;
-}
+  .sub{
+    margin:0 0 22px 0;
+    font-size:14px;
+    color:var(--sage);
+    line-height:1.5;
+  }
 
-input, textarea{
-  width:100%;
-  padding:10px;
-  margin-top:5px;
-  border:1px solid #ccc;
-  border-radius:4px;
-}
+  .q{
+    margin-top:18px;
+  }
 
-.checkbox-group{
-  margin-top:10px;
-}
+  .q label.title{
+    display:block;
+    font-weight:600;
+    color:var(--charcoal);
+    margin-bottom:8px;
+    line-height:1.35;
+  }
 
-.checkbox-item{
-  display:flex;
-  align-items:center;
-  margin-bottom:8px;
-}
+  select, input[type="text"], input[type="tel"]{
+    width:100%;
+    border:1px solid var(--border);
+    background:#fafafa;
+    padding:12px 12px;
+    border-radius:10px;
+    font-size:14px;
+    color:var(--charcoal);
+    outline:none;
+    transition:.2s;
+  }
 
-.checkbox-item input{
-  margin-right:10px;
-  width:auto;
-}
+  select:focus, input:focus{
+    border-color:var(--gold);
+    background:#fff;
+  }
 
-button{
-  margin-top:20px;
-  background:#a57f50;
-  color:white;
-  padding:12px;
-  border:none;
-  width:100%;
-  font-size:16px;
-  border-radius:4px;
-  cursor:pointer;
-}
+  .hint{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:8px;
+    line-height:1.4;
+  }
 
-button:hover{
-  opacity:0.9;
-}
+  /* Checkbox list aligned */
+  .checks{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#fafafa;
+  }
 
-.success{
-  margin-top:15px;
-  color:green;
-  display:none;
-}
+  .check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    line-height:1.25;
+    font-size:14px;
+    color:var(--charcoal);
+  }
 
+  .check-item input{
+    margin-top:2px;
+  }
+
+  .divider{
+    height:1px;
+    background:var(--border);
+    margin:22px 0 12px;
+  }
+
+  .contact{
+    margin-top:14px;
+    padding:14px;
+    border:1px solid rgba(165,127,80,0.25);
+    background:rgba(165,127,80,0.06);
+    border-radius:12px;
+    display:none;
+  }
+
+  .contact .title2{
+    font-weight:600;
+    color:var(--charcoal);
+    margin:0 0 10px 0;
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  button{
+    width:100%;
+    margin-top:18px;
+    border:none;
+    background:var(--gold);
+    color:white;
+    padding:13px 14px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+  }
+
+  button:hover{ opacity:.92; }
+  button:disabled{ opacity:.6; cursor:not-allowed; }
+
+  .msg{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--sage);
+    display:none;
+  }
+
+  .err{
+    color:#b42318;
+  }
 </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <h1>✨ Queremos escucharte</h1>
+    <p class="sub">
+      Estamos evaluando extender nuestro horario.<br>
+      Tu respuesta toma menos de 1 minuto.
+    </p>
 
-<div class="container">
-<h1>HISTORIAS PREMIUM</h1>
+    <form id="surveyForm">
 
-<form id="formulario">
+      <!-- 1 -->
+      <div class="q">
+        <label class="title">1️⃣ ¿Con qué frecuencia nos visitas actualmente?</label>
+        <select name="frecuencia" required>
+          <option value="">Selecciona una opción</option>
+          <option>1 vez al mes</option>
+          <option>2–3 veces al mes</option>
+          <option>1 vez por semana</option>
+          <option>Varias veces por semana</option>
+        </select>
+      </div>
 
-<label>Nombre</label>
-<input type="text" id="nombre" required>
+      <!-- 2 -->
+      <div class="q">
+        <label class="title">2️⃣ Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</label>
+        <select name="hora" required>
+          <option value="">Selecciona una opción</option>
+          <option>4:00pm</option>
+          <option>5:00pm</option>
+          <option>6:00pm</option>
+          <option>No me afectaría el horario</option>
+        </select>
+      </div>
 
-<label>Email</label>
-<input type="email" id="email" required>
+      <!-- 3 -->
+      <div class="q">
+        <label class="title">3️⃣ ¿En qué días te sería más atractivo visitarnos en horario extendido?</label>
+        <select name="dias" required>
+          <option value="">Selecciona una opción</option>
+          <option>Martes a jueves</option>
+          <option>Viernes y sábado</option>
+          <option>Ambos</option>
+        </select>
+      </div>
 
-<label>Teléfono</label>
-<input type="text" id="telefono">
+      <!-- 4 (multi) -->
+      <div class="q">
+        <label class="title">4️⃣ ¿Qué propuesta te motivaría a visitarnos en la tarde?</label>
+        <div class="hint">(Puedes marcar más de una)</div>
 
-<label>Pregunta 1</label>
-<textarea id="pregunta1"></textarea>
+        <div class="checks" id="checks">
+          <label class="check-item">
+            <input type="checkbox" value="Café + postres">
+            <span>Café + postres</span>
+          </label>
 
-<label>Pregunta 2</label>
-<textarea id="pregunta2"></textarea>
+          <label class="check-item">
+            <input type="checkbox" value="Menú ligero">
+            <span>Menú ligero</span>
+          </label>
 
-<label>Pregunta 3</label>
-<textarea id="pregunta3"></textarea>
+          <label class="check-item">
+            <input type="checkbox" value="Tapas y vinos">
+            <span>Tapas y vinos</span>
+          </label>
 
-<label>Pregunta 4</label>
+          <label class="check-item">
+            <input type="checkbox" value="Ambiente relajado para conversar">
+            <span>Ambiente relajado para conversar</span>
+          </label>
 
-<div class="checkbox-group">
-  <div class="checkbox-item">
-    <input type="checkbox" value="Opcion 1">
-    <span>Opción 1</span>
+          <label class="check-item">
+            <input type="checkbox" value="Espacio para reuniones de trabajo">
+            <span>Espacio para reuniones de trabajo</span>
+          </label>
+        </div>
+
+        <div class="hint">Selecciona al menos una opción.</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="q">
+        <label class="title">5️⃣ Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</label>
+        <select name="visitas" required>
+          <option value="">Selecciona una opción</option>
+          <option>1 vez</option>
+          <option>2 veces</option>
+          <option>3 o más</option>
+        </select>
+      </div>
+
+      <!-- 6 -->
+      <div class="q">
+        <label class="title">6️⃣ ¿Te gustaría recibir notificación cuando iniciemos esta nueva etapa?</label>
+        <select name="notificacion" id="notificacion" required>
+          <option value="">Selecciona una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="contact" id="contactBox">
+        <p class="title2">Déjanos tu info para notificarte</p>
+        <div class="grid2">
+          <div>
+            <label class="title" style="margin:0 0 8px 0;">Nombre y Apellido</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
+          </div>
+          <div>
+            <label class="title" style="margin:0 0 8px 0;">Número de celular</label>
+            <input type="tel" name="celular" id="celular" placeholder="787-000-0000">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" id="btn">Enviar</button>
+      <div class="msg" id="msg"></div>
+    </form>
   </div>
-
-  <div class="checkbox-item">
-    <input type="checkbox" value="Opcion 2">
-    <span>Opción 2</span>
-  </div>
-
-  <div class="checkbox-item">
-    <input type="checkbox" value="Opcion 3">
-    <span>Opción 3</span>
-  </div>
-
-  <div class="checkbox-item">
-    <input type="checkbox" value="Opcion 4">
-    <span>Opción 4</span>
-  </div>
-</div>
-
-<button type="submit">Enviar</button>
-
-<div class="success" id="mensaje">
-Enviado correctamente.
-</div>
-
-</form>
-</div>
 
 <script>
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxvLt5Ae5bwJAiNSAZ5WdFzAIzhDkMMr4IRtdbA4o6IkSgCRDe4C3L3FDDiGOMbVkjo/exec";
 
-document.getElementById("formulario").addEventListener("submit", function(e){
-  e.preventDefault();
+  const form = document.getElementById("surveyForm");
+  const msg = document.getElementById("msg");
+  const btn = document.getElementById("btn");
 
-  var checkboxes = document.querySelectorAll(".checkbox-item input:checked");
-  var valores = [];
+  const noti = document.getElementById("notificacion");
+  const contactBox = document.getElementById("contactBox");
+  const nombre = document.getElementById("nombre");
+  const celular = document.getElementById("celular");
 
-  checkboxes.forEach(function(cb){
-    valores.push(cb.value);
+  function toggleContact() {
+    const v = (noti.value || "").trim();
+    const show = (v === "Sí" || v === "Si");
+    contactBox.style.display = show ? "block" : "none";
+    nombre.required = show;
+    celular.required = show;
+    if (!show) { nombre.value = ""; celular.value = ""; }
+  }
+  noti.addEventListener("change", toggleContact);
+  toggleContact();
+
+  function getPropuestas() {
+    const boxes = document.querySelectorAll("#checks input[type='checkbox']");
+    const selected = [];
+    boxes.forEach(b => { if (b.checked) selected.push(b.value); });
+    return selected;
+  }
+
+  function showMessage(text, isError=false) {
+    msg.style.display = "block";
+    msg.className = "msg" + (isError ? " err" : "");
+    msg.textContent = text;
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const propuestas = getPropuestas();
+    if (propuestas.length === 0) {
+      showMessage("Por favor selecciona al menos una opción en la pregunta 4.", true);
+      return;
+    }
+
+    btn.disabled = true;
+    showMessage("Enviando...");
+
+    const data = {
+      frecuencia: form.frecuencia.value,
+      hora: form.hora.value,
+      dias: form.dias.value,
+      propuesta: propuestas,          // tu script puede hacer join(", ")
+      visitas: form.visitas.value,
+      notificacion: form.notificacion.value,
+      nombre: form.nombre ? form.nombre.value : "",
+      celular: form.celular ? form.celular.value : ""
+    };
+
+    // no-cors: no podemos leer response; asumimos envío
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data)
+    });
+
+    // UX: confirmación inmediata
+    form.reset();
+    toggleContact();
+    btn.disabled = false;
+    showMessage("Gracias por tu respuesta ✨");
   });
-
-  var data = {
-    nombre: document.getElementById("nombre").value,
-    email: document.getElementById("email").value,
-    telefono: document.getElementById("telefono").value,
-    pregunta1: document.getElementById("pregunta1").value,
-    pregunta2: document.getElementById("pregunta2").value,
-    pregunta3: document.getElementById("pregunta3").value,
-    pregunta4: valores.join(", ")
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxvLt5Ae5bwJAiNSAZ5WdFzAIzhDkMMr4IRtdbA4o6IkSgCRDe4C3L3FDDiGOMbVkjo/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-
-  document.getElementById("formulario").reset();
-  document.getElementById("mensaje").style.display="block";
-
-});
-
 </script>
 
 </body>

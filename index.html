@@ -5,159 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historias Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #24272a;
-  color: #ededed;
-  margin: 0;
-  padding: 0;
+  margin:0;
+  font-family:'Raleway', sans-serif;
+  background:#24272a;
+  color:#ededed;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
 }
 
-.container {
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 25px;
+.container{
+  max-width:520px;
+  padding:40px 30px;
 }
 
-h1 {
-  color: #a57f50;
-  text-align: center;
+h1{
+  font-weight:300;
+  font-size:28px;
+  letter-spacing:1px;
+  color:#a57f50;
+  margin-bottom:20px;
 }
 
-.intro {
-  background-color: #2e3235;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 15px;
-  line-height: 1.5;
+p{
+  font-weight:300;
+  line-height:1.6;
+  font-size:15px;
+  margin-bottom:30px;
+  color:#ededed;
 }
 
-label {
-  display: block;
-  margin-top: 15px;
-  font-size: 14px;
+label{
+  font-size:13px;
+  letter-spacing:.5px;
+  display:block;
+  margin-top:20px;
+  color:#a57f50;
 }
 
-select, input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  margin-top: 5px;
-  font-family: Raleway;
+select, textarea, input{
+  width:100%;
+  margin-top:8px;
+  padding:12px;
+  background:#1c1f22;
+  border:1px solid #333;
+  color:#ededed;
+  font-family:'Raleway', sans-serif;
+  font-size:14px;
 }
 
-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background-color: #a57f50;
-  color: #24272a;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
+textarea{
+  resize:none;
+  height:90px;
 }
 
-button:hover {
-  opacity: 0.9;
+button{
+  margin-top:30px;
+  width:100%;
+  padding:14px;
+  background:#a57f50;
+  border:none;
+  color:#24272a;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.success {
-  margin-top: 20px;
-  color: #9fcfca;
-  text-align: center;
+button:hover{
+  opacity:.85;
+}
+
+.footer{
+  margin-top:30px;
+  font-size:12px;
+  color:#777;
+}
+
+.success{
+  margin-top:20px;
+  font-size:14px;
+  color:#a57f50;
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
+<h1>Una nueva etapa</h1>
 
-<h1>Historias Premium</h1>
+<p>
+H Restaurant entra en una nueva etapa de integración junto a Historias y un Café.  
+Estamos evolucionando hacia una experiencia unificada y ampliada bajo el concepto de <strong>Historias Premium</strong>, extendiendo horario hasta las 6:00pm y ofreciendo experiencias corporativas y privadas.
+</p>
 
-<div class="intro">
-Llevamos un tiempo evaluando el desempeño de H Restaurant y hemos decidido poner ese proyecto en pausa para evolucionarlo hacia un nuevo formato.
+<form id="surveyForm">
 
-La visión es integrar esa experiencia dentro de Historias y un Café como una versión premium, extendiendo nuestro horario hasta las 6pm y ofreciendo espacios para reuniones, cenas privadas y experiencias corporativas.
+<label>¿Te gustaría que Historias extienda su horario hasta las 6:00pm?</label>
+<select name="opinion" required>
+<option value="">Selecciona una opción</option>
+<option value="Sí definitivamente">Sí, definitivamente</option>
+<option value="Tal vez">Tal vez</option>
+<option value="No">No</option>
+</select>
 
-Antes de tomar una decisión final, queremos escuchar tu opinión.
-</div>
-
-<form id="premiumForm">
-
-<label>¿En qué horario adicional nos visitarías?</label>
+<label>¿Hasta qué hora preferirías que estemos abiertos?</label>
 <select name="horario" required>
-<option value="">Selecciona</option>
-<option>3pm–4pm</option>
-<option>4pm–5pm</option>
-<option>5pm–6pm</option>
-<option>No lo visitaría en la tarde</option>
+<option value="">Selecciona horario</option>
+<option value="5:30pm">5:30pm</option>
+<option value="6:00pm">6:00pm</option>
+<option value="Más tarde">Más tarde</option>
 </select>
 
-<label>¿Para qué lo usarías?</label>
-<select name="uso" required>
-<option value="">Selecciona</option>
-<option>Reuniones de trabajo</option>
-<option>Coffee break con amigas</option>
-<option>Cena ligera</option>
-<option>Eventos corporativos</option>
-<option>No lo usaría</option>
-</select>
+<label>Comentarios (opcional)</label>
+<textarea name="comentario"></textarea>
 
-<label>¿Te interesan eventos privados?</label>
-<select name="eventos" required>
-<option value="">Selecciona</option>
-<option>Sí</option>
-<option>No</option>
-</select>
+<label>Teléfono (opcional, para recibir info sobre Historias Premium)</label>
+<input type="text" name="telefono">
 
 <label>Email (opcional)</label>
-<input type="email" name="email" placeholder="tuemail@email.com">
-
-<label>Teléfono (opcional)</label>
-<input type="text" name="telefono" placeholder="787-000-0000">
+<input type="email" name="email">
 
 <button type="submit">Enviar opinión</button>
 
+<div class="success" id="successMessage"></div>
+
 </form>
 
-<div class="success" id="successMessage"></div>
+<div class="footer">
+Gracias por caminar con nosotros.
+</div>
 
 </div>
 
 <script>
-
-const scriptURL = "https://script.google.com/macros/s/AKfycbw9uedzv3krgaHSkek62Gbn0EfjDSP_9IuiZlqTD4cVUd6xgTHp3XROM54k6Gnzs6lH/exec";
-
-document.getElementById("premiumForm").addEventListener("submit", function(e) {
+document.getElementById("surveyForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   const formData = new FormData(this);
   const data = Object.fromEntries(formData.entries());
 
-  fetch(scriptURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
+  fetch("https://script.google.com/macros/s/AKfycbw9uedzv3krgaHSkek62Gbn0EfjDSP_9IuiZlqTD4cVUd6xgTHp3XROM54k6Gnzs6lH/exec", {
+    method:"POST",
+    body:JSON.stringify(data),
+    headers:{"Content-Type":"application/json"}
   })
-  .then(response => response.json())
-  .then(() => {
-    document.getElementById("successMessage").innerText =
-      "Gracias por ser parte de la evolución de Historias.";
-    document.getElementById("premiumForm").reset();
+  .then(res=>res.json())
+  .then(response=>{
+    if(response.result==="success"){
+      document.getElementById("successMessage").innerText="Gracias por tu opinión.";
+      document.getElementById("surveyForm").reset();
+    }
   })
-  .catch(error => {
-    document.getElementById("successMessage").innerText =
-      "Hubo un error. Intenta nuevamente.";
+  .catch(error=>{
+    document.getElementById("successMessage").innerText="Hubo un error. Intenta nuevamente.";
   });
-
 });
 </script>
 

@@ -5,163 +5,152 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historias Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin:0;
-  font-family:'Raleway', sans-serif;
-  background:#24272a;
-  color:#ededed;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
+body{
+margin:0;
+background:#24272a;
+color:#ededed;
+font-family:'Raleway',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 }
 
-.container{
-  max-width:520px;
-  padding:40px 30px;
+.wrapper{
+max-width:520px;
+padding:50px 35px;
 }
 
 h1{
-  font-weight:300;
-  font-size:28px;
-  letter-spacing:1px;
-  color:#a57f50;
-  margin-bottom:20px;
+font-weight:300;
+color:#a57f50;
+letter-spacing:1px;
+margin-bottom:20px;
 }
 
 p{
-  font-weight:300;
-  line-height:1.6;
-  font-size:15px;
-  margin-bottom:30px;
-  color:#ededed;
+font-size:15px;
+line-height:1.6;
+opacity:.85;
+margin-bottom:35px;
 }
 
 label{
-  font-size:13px;
-  letter-spacing:.5px;
-  display:block;
-  margin-top:20px;
-  color:#a57f50;
+font-size:12px;
+letter-spacing:.8px;
+color:#a57f50;
+display:block;
+margin-top:22px;
 }
 
-select, textarea, input{
-  width:100%;
-  margin-top:8px;
-  padding:12px;
-  background:#1c1f22;
-  border:1px solid #333;
-  color:#ededed;
-  font-family:'Raleway', sans-serif;
-  font-size:14px;
-}
-
-textarea{
-  resize:none;
-  height:90px;
+select,input{
+width:100%;
+padding:12px;
+margin-top:8px;
+background:#1b1d1f;
+border:1px solid #333;
+color:#ededed;
+font-size:14px;
 }
 
 button{
-  margin-top:30px;
-  width:100%;
-  padding:14px;
-  background:#a57f50;
-  border:none;
-  color:#24272a;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
+width:100%;
+margin-top:35px;
+padding:14px;
+background:#a57f50;
+border:none;
+color:#24272a;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
-  opacity:.85;
-}
-
-.footer{
-  margin-top:30px;
-  font-size:12px;
-  color:#777;
+opacity:.85;
 }
 
 .success{
-  margin-top:20px;
-  font-size:14px;
-  color:#a57f50;
+margin-top:20px;
+color:#a57f50;
+font-size:14px;
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-<h1>Una nueva etapa</h1>
+<div class="wrapper">
+
+<h1>Nueva Etapa</h1>
 
 <p>
-H Restaurant entra en una nueva etapa de integración junto a Historias y un Café.  
-Estamos evolucionando hacia una experiencia unificada y ampliada bajo el concepto de <strong>Historias Premium</strong>, extendiendo horario hasta las 6:00pm y ofreciendo experiencias corporativas y privadas.
+H Restaurant evoluciona hacia una integración con Historias y un Café bajo el concepto <strong>Historias Premium</strong>.  
+Estamos evaluando extender nuestro horario hasta las 6:00pm y ofrecer experiencias corporativas y privadas.
+Tu opinión es clave.
 </p>
 
-<form id="surveyForm">
+<form id="form">
 
-<label>¿Te gustaría que Historias extienda su horario hasta las 6:00pm?</label>
+<label>¿Te gustaría que extendamos hasta las 6:00pm?</label>
 <select name="opinion" required>
-<option value="">Selecciona una opción</option>
-<option value="Sí definitivamente">Sí, definitivamente</option>
-<option value="Tal vez">Tal vez</option>
-<option value="No">No</option>
+<option value="">Selecciona</option>
+<option>Definitivamente sí</option>
+<option>Tal vez</option>
+<option>No lo veo necesario</option>
 </select>
 
-<label>¿Hasta qué hora preferirías que estemos abiertos?</label>
-<select name="horario" required>
-<option value="">Selecciona horario</option>
-<option value="5:30pm">5:30pm</option>
-<option value="6:00pm">6:00pm</option>
-<option value="Más tarde">Más tarde</option>
+<label>¿En qué horario nos visitarías?</label>
+<select name="horarioVisita" required>
+<option value="">Selecciona</option>
+<option>3:00pm - 4:00pm</option>
+<option>4:00pm - 5:00pm</option>
+<option>5:00pm - 6:00pm</option>
+<option>Solo en la mañana</option>
 </select>
 
-<label>Comentarios (opcional)</label>
-<textarea name="comentario"></textarea>
+<label>¿Para qué nos visitarías en ese horario?</label>
+<select name="motivoVisita" required>
+<option value="">Selecciona</option>
+<option>Reunión de trabajo</option>
+<option>After office / café relajado</option>
+<option>Cena ligera</option>
+<option>Evento corporativo</option>
+<option>Encuentro social</option>
+</select>
 
-<label>Teléfono (opcional, para recibir info sobre Historias Premium)</label>
+<label>Teléfono (opcional)</label>
 <input type="text" name="telefono">
 
 <label>Email (opcional)</label>
 <input type="email" name="email">
 
-<button type="submit">Enviar opinión</button>
+<button type="submit">Enviar</button>
 
-<div class="success" id="successMessage"></div>
+<div class="success" id="msg"></div>
 
 </form>
-
-<div class="footer">
-Gracias por caminar con nosotros.
-</div>
 
 </div>
 
 <script>
-document.getElementById("surveyForm").addEventListener("submit", function(e){
-  e.preventDefault();
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
 
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData.entries());
+const data = Object.fromEntries(new FormData(this).entries());
 
-  fetch("https://script.google.com/macros/s/AKfycby3BGorYa6fqitMwJWpUNrrXSa6tgppqlGoVA-CwHrHhWkX88gpKnJUsgwJu05knfh5/exec", {
-    method:"POST",
-    body:JSON.stringify(data),
-    headers:{"Content-Type":"application/json"}
-  })
-  .then(res=>res.json())
-  .then(response=>{
-    if(response.result==="success"){
-      document.getElementById("successMessage").innerText="Gracias por tu opinión.";
-      document.getElementById("surveyForm").reset();
-    }
-  })
-  .catch(error=>{
-    document.getElementById("successMessage").innerText="Hubo un error. Intenta nuevamente.";
-  });
+fetch("https://script.google.com/macros/s/AKfycby2D55s8r5VI0W9JkYtTOI9_nUmiGmfzeW7EcGZUkLnZlZ5PvnTCL7-ECqY9vnBYjNm/exec", {
+method:"POST",
+mode:"no-cors",
+body:JSON.stringify(data),
+headers:{
+"Content-Type":"application/json"
+}
+});
+
+document.getElementById("msg").innerText="Gracias por tu opinión.";
+this.reset();
 });
 </script>
 

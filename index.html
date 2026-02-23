@@ -1,158 +1,138 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Historias Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Historias y un Café</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: #f7f5f2;
+      color: #24272a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-<style>
-body{
-margin:0;
-background:#24272a;
-color:#ededed;
-font-family:'Raleway',sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+    }
 
-.wrapper{
-max-width:520px;
-padding:50px 35px;
-}
+    h1 {
+      font-weight: 300;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #a57f50;
+    }
 
-h1{
-font-weight:300;
-color:#a57f50;
-letter-spacing:1px;
-margin-bottom:20px;
-}
+    p {
+      font-size: 14px;
+      margin-bottom: 30px;
+      color: #5c857d;
+    }
 
-p{
-font-size:15px;
-line-height:1.6;
-opacity:.85;
-margin-bottom:35px;
-}
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+    }
 
-label{
-font-size:12px;
-letter-spacing:.8px;
-color:#a57f50;
-display:block;
-margin-top:22px;
-}
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+    }
 
-select,input{
-width:100%;
-padding:12px;
-margin-top:8px;
-background:#1b1d1f;
-border:1px solid #333;
-color:#ededed;
-font-size:14px;
-}
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #a57f50;
+      border: none;
+      border-radius: 8px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-button{
-width:100%;
-margin-top:35px;
-padding:14px;
-background:#a57f50;
-border:none;
-color:#24272a;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-}
+    button:hover {
+      background: #8c6840;
+    }
 
-button:hover{
-opacity:.85;
-}
-
-.success{
-margin-top:20px;
-color:#a57f50;
-font-size:14px;
-}
-</style>
+    .success {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #5c857d;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1>Historias y un Café</h1>
+    <p>Cuéntanos cuándo nos visitarías y para qué.</p>
 
-<div class="wrapper">
+    <form id="form">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
 
-<h1>Nueva Etapa</h1>
+      <label>Email</label>
+      <input type="email" name="email" required>
 
-<p>
-H Restaurant evoluciona hacia una integración con Historias y un Café bajo el concepto <strong>Historias Premium</strong>.  
-Estamos evaluando extender nuestro horario hasta las 6:00pm y ofrecer experiencias corporativas y privadas.
-Tu opinión es clave.
-</p>
+      <label>¿En qué horario nos visitarías?</label>
+      <select name="horario" required>
+        <option value="">Selecciona una opción</option>
+        <option>Mañana (7:30am - 10:00am)</option>
+        <option>Media mañana (10:00am - 12:00pm)</option>
+        <option>Almuerzo ligero (12:00pm - 2:30pm)</option>
+        <option>Fin de semana (8:00am - 2:00pm)</option>
+      </select>
 
-<form id="form">
+      <label>¿Para qué nos visitarías?</label>
+      <select name="motivo" required>
+        <option value="">Selecciona una opción</option>
+        <option>Trabajar tranquila</option>
+        <option>Desayuno con amigas</option>
+        <option>Brunch especial</option>
+        <option>Reunión informal</option>
+        <option>Momento personal</option>
+      </select>
 
-<label>¿Te gustaría que extendamos hasta las 6:00pm?</label>
-<select name="opinion" required>
-<option value="">Selecciona</option>
-<option>Definitivamente sí</option>
-<option>Tal vez</option>
-<option>No lo veo necesario</option>
-</select>
+      <button type="submit">Enviar</button>
+    </form>
 
-<label>¿En qué horario nos visitarías?</label>
-<select name="horarioVisita" required>
-<option value="">Selecciona</option>
-<option>3:00pm - 4:00pm</option>
-<option>4:00pm - 5:00pm</option>
-<option>5:00pm - 6:00pm</option>
-<option>Solo en la mañana</option>
-</select>
+    <div class="success" id="successMessage"></div>
+  </div>
 
-<label>¿Para qué nos visitarías en ese horario?</label>
-<select name="motivoVisita" required>
-<option value="">Selecciona</option>
-<option>Reunión de trabajo</option>
-<option>After office / café relajado</option>
-<option>Cena ligera</option>
-<option>Evento corporativo</option>
-<option>Encuentro social</option>
-</select>
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycby2D55s8r5VI0W9JkYtTOI9_nUmiGmfzeW7EcGZUkLnZlZ5PvnTCL7-ECqY9vnBYjNm/exec";
+    const form = document.getElementById("form");
+    const successMessage = document.getElementById("successMessage");
 
-<label>Teléfono (opcional)</label>
-<input type="text" name="telefono">
-
-<label>Email (opcional)</label>
-<input type="email" name="email">
-
-<button type="submit">Enviar</button>
-
-<div class="success" id="msg"></div>
-
-</form>
-
-</div>
-
-<script>
-document.getElementById("form").addEventListener("submit", function(e){
-e.preventDefault();
-
-const data = Object.fromEntries(new FormData(this).entries());
-
-fetch("https://script.google.com/macros/s/AKfycby2D55s8r5VI0W9JkYtTOI9_nUmiGmfzeW7EcGZUkLnZlZ5PvnTCL7-ECqY9vnBYjNm/exec", {
-method:"POST",
-mode:"no-cors",
-body:JSON.stringify(data),
-headers:{
-"Content-Type":"application/json"
-}
-});
-
-document.getElementById("msg").innerText="Gracias por tu opinión.";
-this.reset();
-});
-</script>
-
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: "POST", body: new FormData(form)})
+        .then(response => {
+          successMessage.innerHTML = "Gracias por compartir con nosotros.";
+          form.reset();
+        })
+        .catch(error => {
+          successMessage.innerHTML = "Hubo un error. Intenta nuevamente.";
+        });
+    });
+  </script>
 </body>
 </html>

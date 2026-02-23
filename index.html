@@ -1,231 +1,177 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encuesta Historias</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
-
+<title>Historias Premium</title>
 <style>
-body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #ededed;
-  margin: 0;
-  padding: 20px;
+
+body{
+  font-family: Raleway, sans-serif;
+  background:#ededed;
+  margin:0;
+  padding:40px;
 }
 
-.container {
-  max-width: 650px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.container{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
-h1 {
-  color: #24272a;
-  font-size: 26px;
-  margin-bottom: 10px;
+h1{
+  color:#24272a;
 }
 
-.subtitle {
-  color: #5c857d;
-  margin-bottom: 25px;
+label{
+  display:block;
+  margin-top:15px;
+  font-weight:600;
 }
 
-label {
-  font-weight: 600;
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  color: #24272a;
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:1px solid #ccc;
+  border-radius:4px;
 }
 
-select, input[type="text"], input[type="tel"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: 'Raleway';
-  font-size: 14px;
+.checkbox-group{
+  margin-top:10px;
 }
 
-.checkbox-group {
-  margin-top: 10px;
+.checkbox-item{
+  display:flex;
+  align-items:center;
+  margin-bottom:8px;
 }
 
-.checkbox-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
+.checkbox-item input{
+  margin-right:10px;
+  width:auto;
 }
 
-.checkbox-item input {
-  margin-right: 10px;
+button{
+  margin-top:20px;
+  background:#a57f50;
+  color:white;
+  padding:12px;
+  border:none;
+  width:100%;
+  font-size:16px;
+  border-radius:4px;
+  cursor:pointer;
 }
 
-button {
-  margin-top: 30px;
-  background-color: #a57f50;
-  color: white;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: 'Raleway';
-  font-weight: 600;
+button:hover{
+  opacity:0.9;
 }
 
-button:hover {
-  background-color: #8e6a3f;
+.success{
+  margin-top:15px;
+  color:green;
+  display:none;
 }
 
-.success {
-  color: green;
-  margin-top: 15px;
-}
-
-.error {
-  color: red;
-  margin-top: 15px;
-}
 </style>
 </head>
-
 <body>
 
 <div class="container">
-  <h1>✨ Queremos escucharte</h1>
-  <div class="subtitle">
-    Estamos evaluando extender nuestro horario.<br>
-    Tu respuesta toma menos de 1 minuto.
+<h1>HISTORIAS PREMIUM</h1>
+
+<form id="formulario">
+
+<label>Nombre</label>
+<input type="text" id="nombre" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Teléfono</label>
+<input type="text" id="telefono">
+
+<label>Pregunta 1</label>
+<textarea id="pregunta1"></textarea>
+
+<label>Pregunta 2</label>
+<textarea id="pregunta2"></textarea>
+
+<label>Pregunta 3</label>
+<textarea id="pregunta3"></textarea>
+
+<label>Pregunta 4</label>
+
+<div class="checkbox-group">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Opcion 1">
+    <span>Opción 1</span>
   </div>
 
-<form id="encuestaForm">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Opcion 2">
+    <span>Opción 2</span>
+  </div>
 
-<label>1️⃣ ¿Con qué frecuencia nos visitas actualmente?</label>
-<select name="frecuencia" required>
-  <option value="">Selecciona una opción</option>
-  <option>1 vez al mes</option>
-  <option>2–3 veces al mes</option>
-  <option>1 vez por semana</option>
-  <option>Varias veces por semana</option>
-</select>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Opcion 3">
+    <span>Opción 3</span>
+  </div>
 
-<label>2️⃣ Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</label>
-<select name="hora" required>
-  <option value="">Selecciona una opción</option>
-  <option>4:00pm</option>
-  <option>5:00pm</option>
-  <option>6:00pm</option>
-  <option>No me afectaría el horario</option>
-</select>
-
-<label>3️⃣ ¿En qué días te sería más atractivo visitarnos en horario extendido?</label>
-<select name="dias" required>
-  <option value="">Selecciona una opción</option>
-  <option>Martes a jueves</option>
-  <option>Viernes y sábado</option>
-  <option>Ambos</option>
-</select>
-
-<label>4️⃣ ¿Qué propuesta te motivaría a visitarnos en la tarde? (Puedes marcar más de una)</label>
-<div class="checkbox-group">
-  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Café + postres"> Café + postres</div>
-  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Menú ligero"> Menú ligero</div>
-  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Tapas y vinos"> Tapas y vinos</div>
-  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Ambiente relajado para conversar"> Ambiente relajado para conversar</div>
-  <div class="checkbox-item"><input type="checkbox" name="propuesta" value="Espacio para reuniones de trabajo"> Espacio para reuniones de trabajo</div>
-</div>
-
-<label>5️⃣ Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</label>
-<select name="visitas" required>
-  <option value="">Selecciona una opción</option>
-  <option>1 vez</option>
-  <option>2 veces</option>
-  <option>3 o más</option>
-</select>
-
-<label>6️⃣ ¿Te gustaría recibir notificación cuando iniciemos esta nueva etapa?</label>
-<select name="notificacion" id="notificacion" required>
-  <option value="">Selecciona una opción</option>
-  <option>Sí</option>
-  <option>No</option>
-</select>
-
-<div id="datosContacto" style="display:none;">
-  <label>Nombre y Apellido:</label>
-  <input type="text" name="nombre">
-
-  <label>Número de celular:</label>
-  <input type="tel" name="celular">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Opcion 4">
+    <span>Opción 4</span>
+  </div>
 </div>
 
 <button type="submit">Enviar</button>
 
-<div id="mensaje"></div>
+<div class="success" id="mensaje">
+Enviado correctamente.
+</div>
 
 </form>
 </div>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbx6zul-7YRMfOCGAZilNsbTtZqkEJ8AODZGjptXeT0a3j_wyvMaC3eRAe4ftVxY2pUs/exec";
 
-document.getElementById("notificacion").addEventListener("change", function() {
-  const contacto = document.getElementById("datosContacto");
-  if (this.value === "Sí") {
-    contacto.style.display = "block";
-  } else {
-    contacto.style.display = "none";
-  }
-});
-
-document.getElementById("encuestaForm").addEventListener("submit", async function(e) {
+document.getElementById("formulario").addEventListener("submit", function(e){
   e.preventDefault();
 
-  const form = e.target;
-  const formData = new FormData(form);
+  var checkboxes = document.querySelectorAll(".checkbox-item input:checked");
+  var valores = [];
 
-  const propuestas = [];
-  form.querySelectorAll('input[name="propuesta"]:checked')
-      .forEach(el => propuestas.push(el.value));
+  checkboxes.forEach(function(cb){
+    valores.push(cb.value);
+  });
 
-  const data = {
-    frecuencia: formData.get("frecuencia"),
-    hora: formData.get("hora"),
-    dias: formData.get("dias"),
-    propuesta: propuestas,
-    visitas: formData.get("visitas"),
-    notificacion: formData.get("notificacion"),
-    nombre: formData.get("nombre"),
-    celular: formData.get("celular")
+  var data = {
+    nombre: document.getElementById("nombre").value,
+    email: document.getElementById("email").value,
+    telefono: document.getElementById("telefono").value,
+    pregunta1: document.getElementById("pregunta1").value,
+    pregunta2: document.getElementById("pregunta2").value,
+    pregunta3: document.getElementById("pregunta3").value,
+    pregunta4: valores.join(", ")
   };
 
-  try {
-    const response = await fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
-    });
+  fetch("https://script.google.com/macros/s/AKfycbxvLt5Ae5bwJAiNSAZ5WdFzAIzhDkMMr4IRtdbA4o6IkSgCRDe4C3L3FDDiGOMbVkjo/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
 
-    const result = await response.json();
+  document.getElementById("formulario").reset();
+  document.getElementById("mensaje").style.display="block";
 
-    if (result.result === "success") {
-      document.getElementById("mensaje").innerHTML = "<div class='success'>Gracias por tu respuesta ✨</div>";
-      form.reset();
-      document.getElementById("datosContacto").style.display = "none";
-    } else {
-      throw new Error();
-    }
-
-  } catch (error) {
-    document.getElementById("mensaje").innerHTML = "<div class='error'>Ocurrió un error al enviar. Intenta nuevamente.</div>";
-  }
 });
+
 </script>
 
 </body>

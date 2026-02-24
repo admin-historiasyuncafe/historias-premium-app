@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta - Historias Premium</title>
+    <title>Encuesta - Historias y un café</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#24272a',
+                        gold: '#a57f50',
+                        sage: '#5c857d',
+                        light: '#ededed',
+                        bordercolor: '#e6e6e6',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Estilos base para suavizar transiciones */
         .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
@@ -14,25 +28,36 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Personalizar el color del check y radio para que usen el color Gold */
+        input[type="radio"]:checked, input[type="checkbox"]:checked {
+            background-color: #a57f50;
+            border-color: #a57f50;
+        }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen py-10 px-4 font-sans text-gray-800">
+<body class="bg-light min-h-screen py-10 px-4 font-sans text-charcoal">
 
-    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-        <!-- Header -->
-        <div class="bg-amber-600 px-6 py-8 text-center text-white">
-            <h1 class="text-3xl font-bold mb-2">Historias Premium</h1>
-            <p class="text-amber-100">Ayúdanos a mejorar nuestra experiencia extendida</p>
+    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-bordercolor">
+        
+        <!-- Header con los nuevos textos y colores -->
+        <div class="bg-white px-6 py-10 text-center border-b-4 border-gold">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-charcoal tracking-tight">Historias y un café</h1>
+            <div class="space-y-1">
+                <p class="font-semibold text-xl text-gold">✨ Queremos escucharte</p>
+                <p class="text-lg text-charcoal">Estamos evaluando extender nuestro horario.</p>
+                <p class="text-sm font-medium text-sage pt-1">Tu respuesta toma menos de 1 minuto.</p>
+            </div>
         </div>
 
         <!-- Contenedor de mensajes -->
-        <div id="success-message" class="hidden bg-green-50 border-l-4 border-green-500 p-6 m-6 rounded-md fade-in">
+        <div id="success-message" class="hidden bg-light border-l-4 border-sage p-6 m-6 rounded-md fade-in">
             <div class="flex items-center">
-                <svg class="h-6 w-6 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-6 w-6 text-sage mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                 </svg>
-                <p class="text-green-800 font-medium">¡Gracias por tus respuestas! Han sido guardadas exitosamente.</p>
+                <p class="text-charcoal font-bold text-lg">¡Gracias por tus respuestas!</p>
             </div>
+            <p class="text-charcoal mt-2 ml-9">Han sido guardadas exitosamente.</p>
         </div>
 
         <div id="error-message" class="hidden bg-red-50 border-l-4 border-red-500 p-6 m-6 rounded-md fade-in">
@@ -44,8 +69,8 @@
             
             <!-- 1. Frecuencia -->
             <div class="space-y-3">
-                <label class="block text-lg font-semibold text-gray-700">1. ¿Cuál es tu frecuencia de visita actual?</label>
-                <select name="frecuencia" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors bg-white text-gray-700">
+                <label class="block text-lg font-semibold text-charcoal">1. ¿Cuál es tu frecuencia de visita actual?</label>
+                <select name="frecuencia" required class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white text-charcoal cursor-pointer">
                     <option value="">Selecciona una opción</option>
                     <option value="1 vez al mes">1 vez al mes</option>
                     <option value="2–3 veces al mes">2–3 veces al mes</option>
@@ -56,8 +81,8 @@
 
             <!-- 2. Horario -->
             <div class="space-y-3">
-                <label class="block text-lg font-semibold text-gray-700">2. Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</label>
-                <select name="hora" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors bg-white text-gray-700">
+                <label class="block text-lg font-semibold text-charcoal">2. Si extendemos nuestro horario, ¿hasta qué hora te sería atractivo visitarnos?</label>
+                <select name="hora" required class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white text-charcoal cursor-pointer">
                     <option value="">Selecciona una opción</option>
                     <option value="4:00pm">4:00pm</option>
                     <option value="5:00pm">5:00pm</option>
@@ -68,8 +93,8 @@
 
             <!-- 3. Días -->
             <div class="space-y-3">
-                <label class="block text-lg font-semibold text-gray-700">3. ¿En qué días te sería más atractivo visitarnos en horario extendido?</label>
-                <select name="dias" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors bg-white text-gray-700">
+                <label class="block text-lg font-semibold text-charcoal">3. ¿En qué días te sería más atractivo visitarnos en horario extendido?</label>
+                <select name="dias" required class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white text-charcoal cursor-pointer">
                     <option value="">Selecciona una opción</option>
                     <option value="Martes a jueves">Martes a jueves</option>
                     <option value="Viernes y sábado">Viernes y sábado</option>
@@ -79,36 +104,36 @@
 
             <!-- 4. Propuestas (Múltiple) -->
             <div class="space-y-3">
-                <label class="block text-lg font-semibold text-gray-700">4. ¿Qué propuesta te motivaría a visitarnos en la tarde? <span class="text-sm font-normal text-gray-500">(Puedes marcar más de una)</span></label>
-                <div class="space-y-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="checkbox" name="propuesta" value="Café + postres" class="h-5 w-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
-                        <span>Café + postres</span>
+                <label class="block text-lg font-semibold text-charcoal">4. ¿Qué propuesta te motivaría a visitarnos en la tarde? <span class="block text-sm font-normal text-sage mt-1">(Puedes marcar más de una)</span></label>
+                <div class="space-y-2 grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 border border-bordercolor rounded hover:bg-light transition-colors">
+                        <input type="checkbox" name="propuesta" value="Café + postres" class="h-5 w-5 text-gold border-bordercolor rounded focus:ring-gold focus:ring-2">
+                        <span class="font-medium text-charcoal">Café + postres</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="checkbox" name="propuesta" value="Menú ligero" class="h-5 w-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
-                        <span>Menú ligero</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 border border-bordercolor rounded hover:bg-light transition-colors">
+                        <input type="checkbox" name="propuesta" value="Menú ligero" class="h-5 w-5 text-gold border-bordercolor rounded focus:ring-gold focus:ring-2">
+                        <span class="font-medium text-charcoal">Menú ligero</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="checkbox" name="propuesta" value="Tapas y vinos" class="h-5 w-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
-                        <span>Tapas y vinos</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 border border-bordercolor rounded hover:bg-light transition-colors">
+                        <input type="checkbox" name="propuesta" value="Tapas y vinos" class="h-5 w-5 text-gold border-bordercolor rounded focus:ring-gold focus:ring-2">
+                        <span class="font-medium text-charcoal">Tapas y vinos</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="checkbox" name="propuesta" value="Ambiente relajado para conversar" class="h-5 w-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
-                        <span>Ambiente relajado para conversar</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 border border-bordercolor rounded hover:bg-light transition-colors">
+                        <input type="checkbox" name="propuesta" value="Ambiente relajado para conversar" class="h-5 w-5 text-gold border-bordercolor rounded focus:ring-gold focus:ring-2">
+                        <span class="font-medium text-charcoal">Ambiente relajado para conversar</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50 md:col-span-2">
-                        <input type="checkbox" name="propuesta" value="Espacio para reuniones de trabajo" class="h-5 w-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
-                        <span>Espacio para reuniones de trabajo</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 border border-bordercolor rounded hover:bg-light transition-colors md:col-span-2">
+                        <input type="checkbox" name="propuesta" value="Espacio para reuniones de trabajo" class="h-5 w-5 text-gold border-bordercolor rounded focus:ring-gold focus:ring-2">
+                        <span class="font-medium text-charcoal">Espacio para reuniones de trabajo</span>
                     </label>
                 </div>
-                <p id="error-propuesta" class="text-red-500 text-sm hidden">Por favor, selecciona al menos una propuesta.</p>
+                <p id="error-propuesta" class="text-red-500 text-sm hidden font-medium">Por favor, selecciona al menos una propuesta.</p>
             </div>
 
             <!-- 5. Visitas estimadas -->
             <div class="space-y-3">
-                <label class="block text-lg font-semibold text-gray-700">5. Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</label>
-                <select name="visitas" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors bg-white text-gray-700">
+                <label class="block text-lg font-semibold text-charcoal">5. Si activamos este nuevo horario, ¿cuántas veces al mes crees que nos visitarías?</label>
+                <select name="visitas" required class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white text-charcoal cursor-pointer">
                     <option value="">Selecciona una opción</option>
                     <option value="1 vez">1 vez</option>
                     <option value="2 veces">2 veces</option>
@@ -117,35 +142,35 @@
             </div>
 
             <!-- 6. Notificación -->
-            <div class="space-y-3 border-t pt-6">
-                <label class="block text-lg font-semibold text-gray-700">6. ¿Deseas recibir una notificación cuando iniciemos esta nueva etapa?</label>
-                <div class="flex space-x-6">
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="radio" name="notificacion" value="Sí" required class="h-5 w-5 text-amber-600 border-gray-300 focus:ring-amber-500">
-                        <span class="font-medium">Sí, por favor</span>
+            <div class="space-y-4 border-t border-bordercolor pt-8">
+                <label class="block text-lg font-semibold text-charcoal">6. ¿Deseas recibir una notificación cuando iniciemos esta nueva etapa?</label>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-6">
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 rounded border border-bordercolor hover:bg-light transition-colors w-full">
+                        <input type="radio" name="notificacion" value="Sí" required class="h-5 w-5 text-gold border-bordercolor focus:ring-gold">
+                        <span class="font-medium text-charcoal">Sí, por favor</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-gray-50">
-                        <input type="radio" name="notificacion" value="No" class="h-5 w-5 text-amber-600 border-gray-300 focus:ring-amber-500">
-                        <span class="font-medium">No, gracias</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-3 rounded border border-bordercolor hover:bg-light transition-colors w-full">
+                        <input type="radio" name="notificacion" value="No" class="h-5 w-5 text-gold border-bordercolor focus:ring-gold">
+                        <span class="font-medium text-charcoal">No, gracias</span>
                     </label>
                 </div>
             </div>
 
             <!-- Campos Condicionales (Ocultos por defecto) -->
-            <div id="conditional-fields" class="hidden space-y-4 bg-gray-50 p-6 rounded-lg border border-gray-200 fade-in">
+            <div id="conditional-fields" class="hidden space-y-4 bg-light p-6 rounded-lg border border-bordercolor fade-in mt-4">
                 <div>
-                    <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre y Apellido</label>
-                    <input type="text" id="nombre" name="nombre" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors" placeholder="Ej. Juan Pérez">
+                    <label for="nombre" class="block text-sm font-bold text-charcoal mb-2">Nombre y Apellido</label>
+                    <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white" placeholder="Ej. Juan Pérez">
                 </div>
                 <div>
-                    <label for="celular" class="block text-sm font-medium text-gray-700 mb-1">Número de celular</label>
-                    <input type="tel" id="celular" name="celular" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors" placeholder="Ej. 555-0123">
+                    <label for="celular" class="block text-sm font-bold text-charcoal mb-2">Número de celular</label>
+                    <input type="tel" id="celular" name="celular" class="w-full px-4 py-3 border border-bordercolor rounded-md focus:ring-gold focus:border-gold outline-none transition-colors bg-white" placeholder="Ej. 555-0123">
                 </div>
             </div>
 
             <!-- Botón de Enviar -->
-            <div class="pt-6">
-                <button type="submit" id="submit-btn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50 flex justify-center items-center">
+            <div class="pt-8">
+                <button type="submit" id="submit-btn" class="w-full bg-gold hover:bg-[#8f6b40] text-white font-bold text-lg py-4 px-4 rounded-lg shadow-md transition-colors focus:outline-none focus:ring-4 focus:ring-gold/30 flex justify-center items-center">
                     <span id="btn-text">Enviar Respuestas</span>
                     <svg id="btn-spinner" class="hidden animate-spin ml-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -157,7 +182,7 @@
     </div>
 
     <script>
-        // URL de Google Apps Script (Debe terminar en /exec)
+        // URL de Google Apps Script 
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvLt5Ae5bwJAiNSAZ5WdFzAIzhDkMMr4IRtdbA4o6IkSgCRDe4C3L3FDDiGOMbVkjo/exec';
 
         // Lógica para mostrar/ocultar campos condicionales
@@ -195,7 +220,6 @@
             
             if (checkboxes.length === 0) {
                 errorPropuesta.classList.remove('hidden');
-                // Scroll hacia la pregunta
                 document.querySelector('input[name="propuesta"]').scrollIntoView({behavior: "smooth", block: "center"});
                 return;
             } else {
@@ -212,13 +236,9 @@
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            // RECOLECCIÓN SEGURA DE DATOS: Usamos FormData y URLSearchParams
-            // Esto formatea los datos como application/x-www-form-urlencoded, 
-            // el cual es 100% compatible con Apps Script y no-cors.
             const formData = new FormData(form);
             const dataToPost = new URLSearchParams();
 
-            // 1. Campos simples
             const simpleFields = ['frecuencia', 'hora', 'dias', 'visitas', 'notificacion'];
             simpleFields.forEach(field => {
                 if(formData.get(field)) {
@@ -226,34 +246,29 @@
                 }
             });
 
-            // 2. Campo múltiple (Propuesta) unida por comas
             const propuestasArr = formData.getAll('propuesta');
             if(propuestasArr.length > 0) {
                 dataToPost.append('propuesta', propuestasArr.join(', '));
             }
 
-            // 3. Campos condicionales manejados estrictamente
             const notificacion = formData.get('notificacion');
             if (notificacion === 'Sí') {
                 dataToPost.append('nombre', formData.get('nombre') || '');
                 dataToPost.append('celular', formData.get('celular') || '');
             } else {
-                // Si dijo 'No', forzamos vacío aunque el usuario haya escrito algo antes
                 dataToPost.append('nombre', '');
                 dataToPost.append('celular', '');
             }
 
-            // ENVÍO AL BACKEND
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Evita bloqueos de navegador
+                mode: 'no-cors', 
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded' // Clave del éxito
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: dataToPost.toString()
             })
             .then(() => {
-                // Al usar no-cors, la respuesta es opaca (el navegador asume éxito si la petición se envió)
                 form.classList.add('hidden');
                 document.getElementById('success-message').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -261,8 +276,6 @@
             .catch(error => {
                 console.error('Error al enviar:', error);
                 document.getElementById('error-message').classList.remove('hidden');
-                
-                // Restaurar botón
                 btnText.textContent = 'Enviar Respuestas';
                 btnSpinner.classList.add('hidden');
                 submitBtn.disabled = false;
